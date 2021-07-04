@@ -18,7 +18,11 @@ const io = require("socket.io")(server, {
 app.get("/", (req, res) => res.send("Hello World!"));
 
 io.on("connection", (socket) => {
-  console.log("a user connected");
+  console.log("a user connected: ", socket.client.id);
+  socket.on("chatMessage", (msg) => {
+    console.log("message: ", msg);
+    io.emit("chatMessage", msg);
+  });
   socket.emit("connection", null);
 });
 
