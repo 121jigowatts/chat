@@ -33,7 +33,7 @@ class Logs extends React.Component {
             <div key={index}>
               <div>
                 <label>
-                  {log.name}({log.dateTime}):{log.message}
+                  [{log.dateTime}]{log.name}({log.id}):{log.message}
                 </label>
               </div>
             </div>
