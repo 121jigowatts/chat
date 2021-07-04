@@ -1,6 +1,7 @@
 import { div } from "prelude-ls";
 import React, { Component } from "react";
 import socketClient from "socket.io-client";
+import "./Chat.css";
 
 const server = "http://localhost:3000";
 const socket = socketClient(server);
@@ -11,6 +12,7 @@ class Chat extends Component {
     this.state = {
       name: "",
       message: "",
+      dateTime: "",
     };
   }
 
@@ -29,13 +31,14 @@ class Chat extends Component {
     socket.emit("chatMessage", {
       name: this.state.name,
       message: this.state.message,
+      dateTime: new Date().toLocaleTimeString(),
     });
     this.setState({ message: "" });
   };
 
   render() {
     return (
-      <div>
+      <div className="sender">
         <div>
           <label>Name:</label>
           <input

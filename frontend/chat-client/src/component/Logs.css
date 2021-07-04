@@ -1,0 +1,9 @@
+.logs {
+  flex: 1;
+  overflow-y: scroll;
+  background-color: #282c34;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
